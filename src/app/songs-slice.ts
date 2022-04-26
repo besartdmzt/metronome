@@ -1,52 +1,54 @@
-import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import { Loading } from "src/models/Loading";
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { Songs } from "src/models/Songs";
-import { getSongsService } from "src/services/songs-services";
 
 export interface SongsState {
   selectedBpm: number;
   songs: Songs[];
-  loading: Loading;
+  filteredSongs: Songs[];
 }
 
 const initialState: SongsState = {
   selectedBpm: 72,
-  songs: [],
-  loading: Loading.UNINITIALIZED,
-};
+  filteredSongs: [],
+  songs: [
+    { name: "Bohemian Rhapsody", artist: "Queen", bpm: 72 },
+    { name: "Rap God", artist: "Eminem", bpm: 72 },
 
-export const getSongs = createAsyncThunk(
-  "songs/getSongs",
-  async (bpm: number) => {
-    const response = await getSongsService(bpm);
-    return response.data;
-  }
-);
+    { name: "The Scientist", artist: "Coldplay", bpm: 74 },
+    { name: "Sultans of Swing", artist: "Dire Straits", bpm: 74 },
+
+    { name: "High Hopes", artist: "Panic! at the Disco", bpm: 82 },
+    { name: "Take Me Home, Country Roads", artist: "John Denver", bpm: 82 },
+
+    { name: "Zombie", artist: "The Cranberries", bpm: 84 },
+    { name: "Till I Collapse", artist: "Eminem", bpm: 84 },
+
+    { name: "Orion", artist: "Metallica", bpm: 128 },
+    { name: "Sweet Child o' Mine", artist: "Guns N' Roses", bpm: 128 },
+
+    { name: "Beat It", artist: "Michael Jackson", bpm: 138 },
+    { name: "Viva la Vida", artist: "Coldplay", bpm: 138 },
+
+    { name: "Wonderwall", artist: "Oasis", bpm: 87 },
+    { name: "Creep", artist: "Radiohead", bpm: 92 },
+    { name: "Shape of You", artist: "Ed Sheeran", bpm: 96 },
+  ],
+};
 
 export const songsSlice = createSlice({
   name: "songs",
   initialState,
   reducers: {
-    changeBpm: (state, action) => {
+    changeBpmValue: (state, action: PayloadAction<number>) => {
       state.selectedBpm = action.payload;
     },
-  },
-  extraReducers: (builder) => {
-    builder
-      .addCase(getSongs.pending, (state) => {
-        state.loading = Loading.LOADING;
-        state.songs = [];
-      })
-      .addCase(getSongs.fulfilled, (state, action) => {
-        state.loading = Loading.SUCCESS;
-        state.songs = action.payload;
-      })
-      .addCase(getSongs.rejected, (state) => {
-        state.loading = Loading.FAILED;
-        state.songs = [];
-      });
+    filterSongs: (state, action: PayloadAction<number>) => {
+      state.filteredSongs = state.songs.filter(
+        (song) => action.payload === song.bpm
+      );
+    },
   },
 });
 
-export const { changeBpm } = songsSlice.actions;
+export const { changeBpmValue, filterSongs } = songsSlice.actions;
 export default songsSlice.reducer;
