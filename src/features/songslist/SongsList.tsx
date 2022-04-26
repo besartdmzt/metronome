@@ -24,18 +24,6 @@ const SongsList = () => {
           </Typography>
         );
       })}
-
-      <Typography pb="0.5rem" variant="MN14Blue">
-        {t("SONGS_THAT_USE_THIS_BPM")}:
-      </Typography>
-
-      <Typography pb="0.5rem" variant="MN14Grey">
-        {t("SONGS_THAT_USE_THIS_BPM")}:
-      </Typography>
-
-      <Typography pb="0.5rem" variant="MN14Grey">
-        {t("SONGS_THAT_USE_THIS_BPM")}:
-      </Typography>
     </Box>
   );
 };

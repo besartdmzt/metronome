@@ -28,10 +28,6 @@ const initialState: SongsState = {
 
     { name: "Beat It", artist: "Michael Jackson", bpm: 138 },
     { name: "Viva la Vida", artist: "Coldplay", bpm: 138 },
-
-    { name: "Wonderwall", artist: "Oasis", bpm: 87 },
-    { name: "Creep", artist: "Radiohead", bpm: 92 },
-    { name: "Shape of You", artist: "Ed Sheeran", bpm: 96 },
   ],
 };
 
