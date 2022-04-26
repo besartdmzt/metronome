@@ -1,58 +1,83 @@
-import React from 'react';
-import logo from './logo.svg';
-import { Counter } from './features/counter/Counter';
-import './App.css';
+import { Container, createTheme, ThemeProvider } from "@mui/material";
+import BpmSelections from "src/features/bpm-selections/BpmSelections";
+import Header from "src/features/header/Header";
+import PulsingCircle from "src/features/pulsing-circle/PuslingCircle";
+import SongsList from "src/features/songslist/SongsList";
+import { Colors } from "./utils/Colors";
+import "./i18n/i18n";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <Counter />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <span>
-          <span>Learn </span>
-          <a
-            className="App-link"
-            href="https://reactjs.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            React
-          </a>
-          <span>, </span>
-          <a
-            className="App-link"
-            href="https://redux.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Redux
-          </a>
-          <span>, </span>
-          <a
-            className="App-link"
-            href="https://redux-toolkit.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Redux Toolkit
-          </a>
-          ,<span> and </span>
-          <a
-            className="App-link"
-            href="https://react-redux.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            React Redux
-          </a>
-        </span>
-      </header>
-    </div>
-  );
+declare module "@mui/material/Typography" {
+  interface TypographyPropsVariantOverrides {
+    MN24: true;
+    MN18: true;
+    MN14Blue: true;
+    MN14Black: true;
+    MN14Grey: true;
+  }
 }
+
+const App = () => {
+  const theme = createTheme({
+    components: {
+      MuiTypography: {
+        variants: [
+          {
+            props: { variant: "MN24" },
+            style: {
+              fontSize: "1.5rem",
+              letterSpacing: "0.375rem",
+              fontFamily: ["Roboto-Regular", "sans-serif"].join(","),
+              color: Colors.MNBlack,
+            },
+          },
+          {
+            props: { variant: "MN18" },
+            style: {
+              fontSize: "1.125rem",
+              letterSpacing: "0.375rem",
+              fontFamily: ["Roboto-Regular", "sans-serif"].join(","),
+              color: Colors.MNBlue,
+            },
+          },
+          {
+            props: { variant: "MN14Blue" },
+            style: {
+              fontSize: "0.875rem",
+              fontFamily: ["Roboto-Regular", "sans-serif"].join(","),
+              color: Colors.MNBlue,
+            },
+          },
+          {
+            props: { variant: "MN14Black" },
+            style: {
+              fontSize: "0.875rem",
+              fontFamily: ["Roboto-Regular", "sans-serif"].join(","),
+              color: Colors.MNBlack,
+            },
+          },
+          {
+            props: { variant: "MN14Grey" },
+            style: {
+              fontSize: "0.875rem",
+              fontFamily: ["Roboto-Regular", "sans-serif"].join(","),
+              color: Colors.MNGrey,
+            },
+          },
+        ],
+      },
+    },
+  });
+
+  return (
+    <ThemeProvider theme={theme}>
+      <Container maxWidth="sm">
+        <Header />
+        <PulsingCircle />
+        <BpmSelections />
+        <SongsList />
+      </Container>
+    </ThemeProvider>
+  );
+};
 
 export default App;

@@ -1,10 +1,13 @@
-import { configureStore, ThunkAction, Action } from '@reduxjs/toolkit';
-import counterReducer from '../features/counter/counterSlice';
+import { configureStore, ThunkAction, Action } from "@reduxjs/toolkit";
+import logger from "redux-logger";
+import counterReducer from "../features/counter/counterSlice";
 
 export const store = configureStore({
   reducer: {
     counter: counterReducer,
   },
+  middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(logger),
+  devTools: process.env.NODE_ENV !== "production",
 });
 
 export type AppDispatch = typeof store.dispatch;
