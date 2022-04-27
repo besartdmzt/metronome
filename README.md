@@ -3,7 +3,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 ## Short Description
 
 A simple app that show BPM (beats per seconds) for different songs.
-A live link to view the project: https://illustrious-khapse-b005c5.netlify.app/
+A live link to view the project: https://jazzy-yeot-41678c.netlify.app/
 
 ## Available Scripts
 
