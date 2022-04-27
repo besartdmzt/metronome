@@ -1,10 +1,8 @@
 import { Box, Typography } from "@mui/material";
-import { useTranslation } from "react-i18next";
 import { useSelector } from "react-redux";
 import { RootState } from "src/app/store";
 
 const SongsList = () => {
-  const { t } = useTranslation();
   const filteredSongs = useSelector(
     (state: RootState) => state.songs.filteredSongs
   );
