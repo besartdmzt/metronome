@@ -12,7 +12,7 @@ const SelectionItem = (props: IBpmItemProps) => {
   const { value, selected, text, onSelect } = props;
   return (
     <Box
-      width="5.25rem"
+      width="4.75rem"
       height="2.2rem"
       borderRadius="5px"
       alignItems="center"
