@@ -2,7 +2,7 @@ import { Box } from "@mui/material";
 import { useDispatch, useSelector } from "react-redux";
 import { selectVersion } from "src/app/songs-slice";
 import { RootState } from "src/app/store";
-import BpmItem from "src/features/shared-components/SelectionItem";
+import SelectionItem from "src/features/shared-components/SelectionItem";
 
 const VersionSelection = () => {
   const dispatch = useDispatch();
@@ -15,13 +15,13 @@ const VersionSelection = () => {
   return (
     <Box mt="2rem">
       <Box display="flex" justifyContent="space-evenly" flexDirection="row">
-        <BpmItem
+        <SelectionItem
           selected={version === "v1"}
           onSelect={onVersionSelect}
           value={"v1"}
           text="V1"
         />
-        <BpmItem
+        <SelectionItem
           selected={version === "v2"}
           onSelect={onVersionSelect}
           value={"v2"}
