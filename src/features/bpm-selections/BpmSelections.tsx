@@ -1,5 +1,4 @@
 import { Box } from "@mui/material";
-import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { changeBpmValue } from "src/app/songs-slice";
 import { RootState } from "src/app/store";
