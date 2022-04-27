@@ -9,7 +9,10 @@ export interface SongsState {
 
 const initialState: SongsState = {
   selectedBpm: 72,
-  filteredSongs: [],
+  filteredSongs: [
+    { name: "Bohemian Rhapsody", artist: "Queen", bpm: 72 },
+    { name: "Rap God", artist: "Eminem", bpm: 72 },
+  ],
   songs: [
     { name: "Bohemian Rhapsody", artist: "Queen", bpm: 72 },
     { name: "Rap God", artist: "Eminem", bpm: 72 },
@@ -37,8 +40,6 @@ export const songsSlice = createSlice({
   reducers: {
     changeBpmValue: (state, action: PayloadAction<number>) => {
       state.selectedBpm = action.payload;
-    },
-    filterSongs: (state, action: PayloadAction<number>) => {
       state.filteredSongs = state.songs.filter(
         (song) => action.payload === song.bpm
       );
@@ -46,5 +47,5 @@ export const songsSlice = createSlice({
   },
 });
 
-export const { changeBpmValue, filterSongs } = songsSlice.actions;
+export const { changeBpmValue } = songsSlice.actions;
 export default songsSlice.reducer;

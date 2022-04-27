@@ -25,9 +25,9 @@ const App = () => {
             props: { variant: "MN24" },
             style: {
               fontSize: "1.5rem",
-              letterSpacing: "0.375rem",
               fontFamily: ["Roboto-Regular", "sans-serif"].join(","),
               color: Colors.MNBlack,
+              opacity: "50%",
             },
           },
           {

@@ -1,7 +1,7 @@
 import { Box } from "@mui/material";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { changeBpmValue, filterSongs } from "src/app/songs-slice";
+import { changeBpmValue } from "src/app/songs-slice";
 import { RootState } from "src/app/store";
 import BpmItem from "./bpm-item/BpmItem";
 
@@ -10,10 +10,6 @@ const BpmSelections = () => {
   const selectedBpm = useSelector(
     (state: RootState) => state.songs.selectedBpm
   );
-
-  useEffect(() => {
-    dispatch(filterSongs(selectedBpm));
-  }, [selectedBpm, dispatch]);
 
   const selectBpm = (value: number) => {
     dispatch(changeBpmValue(value));
