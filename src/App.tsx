@@ -5,6 +5,7 @@ import PulsingCircle from "src/features/pulsing-circle/PuslingCircle";
 import SongsList from "src/features/songslist/SongsList";
 import { Colors } from "./utils/Colors";
 import "./i18n/i18n";
+import VersionSelection from "./features/version-selection/VersionSelection";
 
 declare module "@mui/material/Typography" {
   interface TypographyPropsVariantOverrides {
@@ -72,6 +73,7 @@ const App = () => {
     <ThemeProvider theme={theme}>
       <Container maxWidth="sm">
         <Header />
+        <VersionSelection />
         <PulsingCircle />
         <BpmSelections />
         <SongsList />

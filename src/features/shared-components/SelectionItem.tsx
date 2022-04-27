@@ -2,13 +2,14 @@ import { Box, Typography } from "@mui/material";
 import { Colors } from "src/utils/Colors";
 
 interface IBpmItemProps {
-  value: number;
+  value: number | string;
   selected: boolean;
-  onSelect(value: number): void;
+  text: string;
+  onSelect(value: number | string): void;
 }
 
-const BpmItem = (props: IBpmItemProps) => {
-  const { value, selected, onSelect } = props;
+const SelectionItem = (props: IBpmItemProps) => {
+  const { value, selected, text, onSelect } = props;
   return (
     <Box
       width="5.25rem"
@@ -24,10 +25,10 @@ const BpmItem = (props: IBpmItemProps) => {
       onClick={() => onSelect(value)}
     >
       <Typography variant={selected ? "MN14Black" : "MN14Blue"}>
-        BPM {value}
+        {text}
       </Typography>
     </Box>
   );
 };
 
-export default BpmItem;
+export default SelectionItem;

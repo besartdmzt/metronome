@@ -5,9 +5,11 @@ export interface SongsState {
   selectedBpm: number;
   songs: Songs[];
   filteredSongs: Songs[];
+  version: "v1" | "v2";
 }
 
 const initialState: SongsState = {
+  version: "v1",
   selectedBpm: 72,
   filteredSongs: [
     { name: "Bohemian Rhapsody", artist: "Queen", bpm: 72 },
@@ -44,8 +46,11 @@ export const songsSlice = createSlice({
         (song) => action.payload === song.bpm
       );
     },
+    selectVersion: (state, action: PayloadAction<"v1" | "v2">) => {
+      state.version = action.payload;
+    },
   },
 });
 
-export const { changeBpmValue } = songsSlice.actions;
+export const { changeBpmValue, selectVersion } = songsSlice.actions;
 export default songsSlice.reducer;
