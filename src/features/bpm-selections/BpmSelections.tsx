@@ -2,7 +2,7 @@ import { Box } from "@mui/material";
 import { useDispatch, useSelector } from "react-redux";
 import { changeBpmValue } from "src/app/songs-slice";
 import { RootState } from "src/app/store";
-import BpmItem from "../shared-components/SelectionItem";
+import SelectionItem from "../shared-components/SelectionItem";
 
 const BpmSelections = () => {
   const dispatch = useDispatch();
@@ -17,19 +17,19 @@ const BpmSelections = () => {
   return (
     <Box mt="3.75rem">
       <Box display="flex" justifyContent="space-evenly" flexDirection="row">
-        <BpmItem
+        <SelectionItem
           selected={selectedBpm === 72}
           onSelect={selectBpm}
           value={72}
           text={"72 BPM"}
         />
-        <BpmItem
+        <SelectionItem
           selected={selectedBpm === 74}
           onSelect={selectBpm}
           value={74}
           text={"74 BPM"}
         />
-        <BpmItem
+        <SelectionItem
           selected={selectedBpm === 82}
           onSelect={selectBpm}
           value={82}
@@ -43,19 +43,19 @@ const BpmSelections = () => {
         justifyContent="space-evenly"
         flexDirection="row"
       >
-        <BpmItem
+        <SelectionItem
           selected={selectedBpm === 84}
           onSelect={selectBpm}
           value={84}
           text={"84 BPM"}
         />
-        <BpmItem
+        <SelectionItem
           selected={selectedBpm === 128}
           onSelect={selectBpm}
           value={128}
           text={"128 BPM"}
         />
-        <BpmItem
+        <SelectionItem
           selected={selectedBpm === 138}
           onSelect={selectBpm}
           value={138}
