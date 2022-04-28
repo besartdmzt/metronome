@@ -9,6 +9,7 @@ const SongsList = () => {
 
   return (
     <Box
+      data-testid="songs-list-box"
       display="flex"
       textAlign="center"
       justifyContent="center"

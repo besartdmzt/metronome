@@ -13,20 +13,31 @@ const VersionSelection = () => {
   };
 
   return (
-    <Box mt="2rem">
-      <Box display="flex" justifyContent="space-evenly" flexDirection="row">
-        <SelectionItem
-          selected={version === "v1"}
-          onSelect={onVersionSelect}
-          value={"v1"}
-          text="V1"
-        />
-        <SelectionItem
-          selected={version === "v2"}
-          onSelect={onVersionSelect}
-          value={"v2"}
-          text={"V2"}
-        />
+    <Box role="root" mt="2rem">
+      <Box
+        role="sub-root"
+        display="flex"
+        justifyContent="space-evenly"
+        flexDirection="row"
+      >
+        <Box data-testid="child-v1">
+          <SelectionItem
+            selected={version === "v1"}
+            onSelect={onVersionSelect}
+            value={"v1"}
+            text="V1"
+          />
+        </Box>
+
+        <Box data-testid="child-v2">
+          <SelectionItem
+            data-testid="child-v2"
+            selected={version === "v2"}
+            onSelect={onVersionSelect}
+            value={"v2"}
+            text={"V2"}
+          />
+        </Box>
       </Box>
     </Box>
   );
