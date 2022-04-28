@@ -12,6 +12,7 @@ const SelectionItem = (props: IBpmItemProps) => {
   const { value, selected, text, onSelect } = props;
   return (
     <Box
+      data-testid="selection-item-box"
       width="4.75rem"
       height="2.2rem"
       borderRadius="5px"
