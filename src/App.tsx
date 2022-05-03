@@ -71,7 +71,7 @@ const App = () => {
 
   return (
     <ThemeProvider theme={theme}>
-      <Container maxWidth="sm">
+      <Container maxWidth="xs">
         <Header />
         <VersionSelection />
         <PulsingCircle />
